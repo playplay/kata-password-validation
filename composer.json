@@ -1,0 +1,19 @@
+{
+    "require-dev": {
+    	
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PasswordValidation\\": "src/"
+        }
+    },
+     "autoload-dev": {
+		"psr-4": {
+			"PasswordValidation\\": "tests/"
+		}
+	},
+    "require": {
+	  "php": "^8.0"
+	}
+}
