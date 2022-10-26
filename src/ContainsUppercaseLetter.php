@@ -2,10 +2,10 @@
 
 namespace PasswordValidation;
 
-class ContainsLowercaseLetter implements Rule
+class ContainsUppercaseLetter
 {
     public function __invoke(string $password): int|false
     {
-        return preg_match('/[a-z]/', $password);
+        return preg_match('/[A-Z]/', $password);
     }
 }

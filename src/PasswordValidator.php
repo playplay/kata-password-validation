@@ -6,34 +6,25 @@ class PasswordValidator
 {
     private ContainsLowercaseLetter $containsLowercaseLetter;
     private ContainsNumber $containsNumber;
+    private ContainsUppercaseLetter $containsUppercaseLetter;
+    private ContainsUnderscore $containsUnderscore;
+    private HasValidLength $hasValidLength;
 
     public function __construct()
     {
         $this->containsLowercaseLetter = new ContainsLowercaseLetter();
         $this->containsNumber = new ContainsNumber();
+        $this->containsUppercaseLetter = new ContainsUppercaseLetter();
+        $this->containsUnderscore = new ContainsUnderscore();
+        $this->hasValidLength = new HasValidLength();
     }
 
-    public function validate(string $password): bool
+    public function validate(string $password, ): bool
     {
-        return $this->hasValidLength($password, 8)
-            && $this->containsUppercaseLetter($password)
+        return ($this->hasValidLength)($password, 8)
+            && ($this->containsUppercaseLetter)($password)
             && ($this->containsLowercaseLetter)($password)
             && ($this->containsNumber)($password)
-            && $this->containsUnderscore($password);
-    }
-
-    private function containsUnderscore(string $password): bool
-    {
-        return str_contains($password, '_');
-    }
-
-    private function containsUppercaseLetter(string $password): int|false
-    {
-        return preg_match('/[A-Z]/', $password);
-    }
-
-    private function hasValidLength(string $password, int $length): bool
-    {
-        return strlen($password) > $length;
+            && ($this->containsUnderscore)($password);
     }
 }
