@@ -6,6 +6,7 @@ class PasswordValidator
 {
     public function validate(string $password): bool
     {
-        return false;
+        return strlen($password) > 8
+            && preg_match('/[A-Z]/', $password);
     }
 }
