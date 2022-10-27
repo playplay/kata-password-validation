@@ -12,7 +12,7 @@ final class PasswordValidator
 
     public function validate(string $string): bool
     {
-        return false;
+        return strlen($string) > 8;
     }
 
 }

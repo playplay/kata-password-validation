@@ -24,11 +24,16 @@ class SampleTest extends TestCase
 
     public function testAPasswordIsValid(): void
     {
-        $this->assertTrue($this->sut->validate('azerty'));
+        $this->assertTrue($this->sut->validate('azazezaeazerty'));
     }
 
-    public function xtestAPasswordHasLessThan8CharactersIsInvalid(): void
+    public function testAPasswordHasLessThan8CharactersIsInvalid(): void
     {
         $this->assertFalse($this->sut->validate('1234567'));
+    }
+
+    public function testAPasswordWithoutCapitalLetterIsInvalid(): void
+    {
+        $this->assertFalse($this->sut->validate('azazezaeazerty'));
     }
 }
