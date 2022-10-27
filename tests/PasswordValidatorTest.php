@@ -6,7 +6,7 @@ namespace PasswordValidation;
 
 use PHPUnit\Framework\TestCase;
 
-class SampleTest extends TestCase
+class PasswordValidatorTest extends TestCase
 {
     private PasswordValidator $sut;
 
@@ -24,7 +24,7 @@ class SampleTest extends TestCase
 
     public function testAPasswordIsValid(): void
     {
-        $this->assertTrue($this->sut->validate('azazezaeazertyE69'));
+        $this->assertTrue($this->sut->validate('azazezaeazerty_E69'));
     }
 
     public function testAPasswordHasLessThan8CharactersIsInvalid(): void
