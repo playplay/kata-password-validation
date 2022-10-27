@@ -22,10 +22,6 @@ final class PasswordValidator
             }
         }
 
-        if (strlen($password) < 8) {
-            return false;
-        }
-
         if (str_contains($password, '_') === false) {
             return false;
         }

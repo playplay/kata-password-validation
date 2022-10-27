@@ -14,7 +14,11 @@ class PasswordValidatorTest extends TestCase
     {
         parent::setUp();
 
-        $this->sut = new PasswordValidator();
+        $this->sut = new PasswordValidator([
+                new HasMoreThan8Characters(),
+                new HasUnderscore(),
+            ]
+        );
     }
 
     public function testAnEmptyPasswordIsInvalid(): void
