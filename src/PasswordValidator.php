@@ -11,11 +11,13 @@ final class PasswordValidator
 
     private HasUpperLetter $hasCapitalLetter;
     private HasLowerCase $hasLowerCase;
+    private HasDigit $hasDigit;
 
     public function __construct(iterable $rules = [])
     {
         $this->rules = $rules;
         $this->hasLowerCase = new HasLowerCase();
+        $this->hasDigit = new HasDigit();
     }
 
     public function validate(string $password): bool
@@ -26,10 +28,20 @@ final class PasswordValidator
             }
         }
 
-        if (preg_match('/\d/', $password) === 0) {
+        if ($this->Digit($password)) {
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * @param string $password
+     *
+     * @return bool
+     */
+    public function Digit(string $password): bool
+    {
+        return $this->hasDigit->Digit($password);
     }
 }

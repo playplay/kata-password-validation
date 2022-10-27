@@ -45,7 +45,7 @@ class PasswordValidatorTest extends TestCase
 
     public function testAPasswordWithoutLowercaseLetterIsInvalid(): void
     {
-        $this->assertFalse($this->sut->validate('AZAZEZAEAZERTY'));
+        $this->assertFalse($this->sut->validate('AZAZEZAE1_AZERTY'));
     }
 
     public function testAPasswordWithoutDigitIsInvalid(): void
