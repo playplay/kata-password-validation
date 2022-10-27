@@ -9,4 +9,10 @@ final class PasswordValidator
     public function __construct()
     {
     }
+
+    public function validate(string $string): bool
+    {
+        return false;
+    }
+
 }
