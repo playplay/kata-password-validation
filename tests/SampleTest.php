@@ -8,8 +8,17 @@ use PHPUnit\Framework\TestCase;
 
 class SampleTest extends TestCase
 {
+    private PasswordValidator $sut;
 
-	public function testSample() {
-		$this->assertTrue(true);
-	}
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->sut = new PasswordValidator();
+    }
+
+    public function testAnEmptyPasswordIsInvalid(): void
+    {
+        $this->assertFalse($this->sut->validate(''));
+    }
 }
