@@ -20,6 +20,10 @@ final class PasswordValidator
             return false;
         }
 
+        if (preg_match('/[a-z]/', $string) === 0) {
+            return false;
+        }
+
         return true;
     }
 

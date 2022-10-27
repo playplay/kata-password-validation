@@ -36,4 +36,14 @@ class SampleTest extends TestCase
     {
         $this->assertFalse($this->sut->validate('azazezaeazerty'));
     }
+
+    public function testAPasswordWithoutLowercaseLetterIsInvalid(): void
+    {
+        $this->assertFalse($this->sut->validate('AZAZEZAEAZERTY'));
+    }
+
+    public function testAPasswordWithoutDigitIsInvalid(): void
+    {
+        $this->assertFalse($this->sut->validate('AZAZEZAEAZERTY'));
+    }
 }
