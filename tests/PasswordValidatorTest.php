@@ -17,6 +17,8 @@ class PasswordValidatorTest extends TestCase
         $this->sut = new PasswordValidator([
                 new HasMoreThan8Characters(),
                 new HasUnderscore(),
+                new HasUpperLetter(),
+                new HasLowerCase(),
             ]
         );
     }

@@ -9,12 +9,13 @@ final class PasswordValidator
     /** @var PasswordRule[] */
     private iterable $rules;
 
-    private HasCapitalLetter $hasCapitalLetter;
+    private HasUpperLetter $hasCapitalLetter;
+    private HasLowerCase $hasLowerCase;
 
     public function __construct(iterable $rules = [])
     {
         $this->rules = $rules;
-        $this->hasCapitalLetter = new HasCapitalLetter();
+        $this->hasLowerCase = new HasLowerCase();
     }
 
     public function validate(string $password): bool
@@ -25,21 +26,10 @@ final class PasswordValidator
             }
         }
 
-        if (str_contains($password, '_') === false) {
-            return false;
-        }
-
-        if ($this->hasCapitalLetter->isValid($password)) return false;
-
-        if (preg_match('/[a-z]/', $password) === 0) {
-            return false;
-        }
-
         if (preg_match('/\d/', $password) === 0) {
             return false;
         }
 
         return true;
     }
-
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PasswordValidation;
 
-class HasCapitalLetter implements PasswordRule
+class HasUpperLetter implements PasswordRule
 {
 
     /**
@@ -14,6 +14,6 @@ class HasCapitalLetter implements PasswordRule
      */
     public function isValid(string $password): bool
     {
-        return preg_match('/[A-Z]/', $password) === 0;
+        return preg_match('/[A-Z]/', $password) !== 0;
     }
 }
