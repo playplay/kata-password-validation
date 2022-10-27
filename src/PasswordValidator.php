@@ -12,7 +12,15 @@ final class PasswordValidator
 
     public function validate(string $string): bool
     {
-        return strlen($string) > 8;
+        if (strlen($string) < 8) {
+            return false;
+        }
+
+        if (preg_match('/[A-Z]/', $string) === 0) {
+            return false;
+        }
+
+        return true;
     }
 
 }

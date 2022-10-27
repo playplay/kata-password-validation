@@ -24,7 +24,7 @@ class SampleTest extends TestCase
 
     public function testAPasswordIsValid(): void
     {
-        $this->assertTrue($this->sut->validate('azazezaeazerty'));
+        $this->assertTrue($this->sut->validate('azazezaeazertyE'));
     }
 
     public function testAPasswordHasLessThan8CharactersIsInvalid(): void
