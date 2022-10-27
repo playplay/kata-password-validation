@@ -19,6 +19,7 @@ class PasswordValidatorTest extends TestCase
                 new HasUnderscore(),
                 new HasUpperLetter(),
                 new HasLowerCase(),
+                new HasDigit(),
             ]
         );
     }
@@ -40,17 +41,17 @@ class PasswordValidatorTest extends TestCase
 
     public function testAPasswordWithoutCapitalLetterIsInvalid(): void
     {
-        $this->assertFalse($this->sut->validate('azazezaeazerty'));
+        $this->assertFalse($this->sut->validate('azazezaeazerty69_'));
     }
 
     public function testAPasswordWithoutLowercaseLetterIsInvalid(): void
     {
-        $this->assertFalse($this->sut->validate('AZAZEZAE1_AZERTY'));
+        $this->assertFalse($this->sut->validate('AZAZEZAE1_AZERTY69'));
     }
 
     public function testAPasswordWithoutDigitIsInvalid(): void
     {
-        $this->assertFalse($this->sut->validate('aZAZEZAEAZERTY'));
+        $this->assertFalse($this->sut->validate('aZAZEZAEAZERTY_'));
     }
 
     public function testAPasswordWithoutUnderscoreIsInvalid(): void
