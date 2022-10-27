@@ -16,6 +16,10 @@ final class PasswordValidator
             return false;
         }
 
+        if (str_contains($string, '_') === false) {
+            return false;
+        }
+
         if (preg_match('/[A-Z]/', $string) === 0) {
             return false;
         }
@@ -23,6 +27,11 @@ final class PasswordValidator
         if (preg_match('/[a-z]/', $string) === 0) {
             return false;
         }
+
+        if (preg_match('/\d/', $string) === 0) {
+            return false;
+        }
+
 
         return true;
     }
