@@ -58,4 +58,10 @@ class PasswordValidatorTest extends TestCase
     {
         $this->assertFalse($this->sut->validate('aZAZEZAEAZERTY69'));
     }
+
+    public function testItContainsHasMoreThan8CharactersError(): void
+    {
+        $errors = $this->sut->getErrors('fdjslfds');
+        $this->assertContains(HasMoreThan8Characters::class, $errors);
+    }
 }

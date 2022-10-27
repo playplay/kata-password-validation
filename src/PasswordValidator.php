@@ -25,4 +25,15 @@ final class PasswordValidator
         return true;
     }
 
+    public function getErrors(string $password): array
+    {
+        $errors = [];
+        foreach ($this->rules as $rule) {
+            if (!$rule->isValid($password)) {
+                $errors [] = $rule::class;
+            }
+        }
+
+        return $errors;
+    }
 }
